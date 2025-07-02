@@ -6,35 +6,52 @@ const files = await glob('dist/**/*.*');
 const assets = files.map(f => base + f.replace(/^dist[\\/]/, '').replace(/\\/g, '/'));
 assets.push(base);
 
+const cacheName = `v${new Date().toISOString()}`;
+
 const serviceWorker = `
-const assets = ${JSON.stringify(assets, null, 2)};
+    const assets = ${JSON.stringify(assets, null, 2)};
+    const CACHE_NAME = '${cacheName}';
 
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open('v1').then(async cache => {
-      for (const asset of assets) {
-        try {
-          await cache.add(asset);
-        } catch (e) {
-          console.error('❌ Failed to cache:', asset, e);
-        }
-      }
-    })
-  );
-});
+    self.addEventistener('install', event => {
+        event.waitUntil(
+            caches.open(CACHE_NAME).then(async cache => {
+                for(const asset of assets) {
+                    try {
+                        await cache.add(asset);
+                    } catch (e) {
+                        console.error('❌ Failed to cache:', asset, e);
+                    }
+                }
+            })
+        );
+    });
 
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      if (response) return response;
-      return fetch(event.request).catch(() => {
-        if (event.request.mode === 'navigate') {
-          return caches.match('/mathbook/index.html');
-        }
-      });
-    })
-  );
-});
+    self.addEventistener('fetch', event => {
+        event.respondWith(
+            caches.match(event.request).then(response => {
+                if(response) return response;
+                return fetch(event.request).catch(() => {
+                    if(event.request.mode === 'navigate') {
+                        return caches.match('${base}index.html');
+                    }
+                });
+            })
+        );
+    });
+
+    self.addEventListener('activate', event => {
+        event.waitUntil(
+            caches.keys().then(cacheNames => {
+                return Promise.all(
+                    cacheNames.map(cacheName => {
+                        if (cacheName !== CACHE_NAME) {
+                            return caches.delete(cacheName);
+                        }
+                    })
+                );
+            })
+        );
+    });
 `;
 
 fs.writeFileSync('dist/service-worker.js', serviceWorker);
