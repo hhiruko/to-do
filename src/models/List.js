@@ -27,6 +27,15 @@ export class List {
         this.storage.set(key, itemObject);
     }
 
+    check(key) {
+        const item = this.storage.get(key);
+        const itemObject = {
+            text: item.text,
+            status: !item.status
+        }
+        this.storage.set(key, itemObject);
+    }
+
     delete(key) {
         this.storage.remove(key);
     }

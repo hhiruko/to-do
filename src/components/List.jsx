@@ -1,5 +1,5 @@
 import { useState } from "preact/hooks";
-import { Plus } from "lucide-preact";
+import { Plus} from "lucide-preact";
 
 export function List({list}) {
     const [items, setItems] = useState(list.get());
@@ -15,6 +15,11 @@ export function List({list}) {
         input.value = '';
     }
 
+    const checkItem = (key) => {
+        list.check(key);
+        setItems(list.get());
+    }
+
     return (
         <>
             <div id="add-to-do-container">
@@ -22,11 +27,11 @@ export function List({list}) {
                 <button onClick={addItem}><Plus /></button>
             </div>
 
-            <ul className="to-do-list">
+            <ul class="to-do-list">
                 {Object.entries(items).sort(([a], [b]) => Number(b) - Number(a)).map(([key, item]) => (
                     <li>
-                        <input type="checkbox" id={key}/>
-                        <label htmlFor={key}>{item.text}</label>
+                        <input type="checkbox" id={key} onChange={() => checkItem(key)} checked={item.status}/>
+                        <label for={key}>{item.text}</label>
                     </li>
                 ))}
             </ul>
