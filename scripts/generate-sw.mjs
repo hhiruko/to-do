@@ -2,7 +2,7 @@ import { glob } from 'glob';
 import { loadEnv } from "vite";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import fs from "node:fs/promises";
+import fs from "node:fs";
 
 const __dirname = dirname(dirname(fileURLToPath(import.meta.url)));
 const env = loadEnv(process.env.NODE_ENV || 'development', __dirname);
