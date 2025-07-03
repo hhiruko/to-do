@@ -61,7 +61,7 @@ export function List({list}) {
             </div>
 
             <ul class="to-do-list">
-                {Object.entries(items).sort(([a], [b]) => Number(b) - Number(a)).map(([key, item]) => (
+                {Object.entries(items).sort(([a], [b]) => Number(b) - Number(a)).sort(([_, a], [__, b]) => Number(a.status) - Number(b.status)).map(([key, item]) => (
                     <li>
                         <input type="checkbox" id={key + '-input'} onChange={() => checkItem(key)} checked={item.status}/>
                         <label for={key + '-input'} id={key + '-label'}>{item.text}</label>
