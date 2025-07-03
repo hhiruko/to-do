@@ -6,6 +6,10 @@ export class CollectionStorage {
         this.COLLECTION_KEY = COLLECTION_KEY;
     }
 
+    list() {
+        return this.#getElements();
+    }
+
     get(key) {
         return this.#getElements()[key];
     }

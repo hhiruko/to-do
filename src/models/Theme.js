@@ -46,7 +46,7 @@ export class Theme {
 
     #switchTheme(theme) {
         const element = document.getElementById(Theme.THEME_KEY);
-        const path = import.meta.env.VITE_API_PATH ? '/' + import.meta.env.VITE_API_PATH : '';
+        const path = import.meta.env.VITE_APP_PATH ? '/' + import.meta.env.VITE_APP_PATH : '';
         switch(theme) {
             case Theme.LIGHT: element.setAttribute('href', path + '/cdn/water.light.min.css'); break;
             case Theme.DARK: element.setAttribute('href', path + '/cdn/water.dark.min.css'); break;
