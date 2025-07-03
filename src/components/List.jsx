@@ -26,16 +26,16 @@ export function List({list}) {
         list.add(text);
         setItems(list.get());
         input.value = '';
-    }
+    };
 
     const checkItem = (key) => {
         list.check(key);
         setItems(list.get());
-    }
+    };
 
     const editItem = (key) => {
         toggleMode(key);
-    }
+    };
 
     const saveItem = (key) => {
         const input = document.getElementById(key + '-edit-input');
@@ -45,13 +45,13 @@ export function List({list}) {
         }
         toggleMode(key);
         setItems(list.get());
-    }
+    };
 
     const deleteItem = (key) => {
         toggleMode(key);
         list.delete(key);
         setItems(list.get());
-    }
+    };
 
     return (
         <>
