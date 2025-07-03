@@ -16,10 +16,7 @@ button:focus {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
-}
-        
-.to-do-list input[type="checkbox"] {
-    margin-right: 10px;
+    gap: 12px;
 }
         
 .to-do-list label {
@@ -44,4 +41,18 @@ button:focus {
 
 #add-to-do-input {
     width: 80%;
+}
+
+.to-do-list button {
+    background: none;
+    padding: 0;
+    margin: auto;
+}
+
+.save-button, .delete-button, .edit-input {
+    display: none;
+}
+
+.edit-input {
+    width: 100%;
 }
