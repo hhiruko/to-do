@@ -78,7 +78,7 @@
   "/to-do/assets/index-B0nh94UL.js",
   "/to-do/"
 ];
-    const CACHE_NAME = 'v2025-07-04T05:21:03.558Z';
+    const CACHE_NAME = 'v2025-07-04T06:31:31.774Z';
 
     self.addEventistener('install', event => {
         event.waitUntil(
