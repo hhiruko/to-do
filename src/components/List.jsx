@@ -1,5 +1,5 @@
 import { useState } from "preact/hooks";
-import { Plus, Pencil, PencilOff, Trash } from "lucide-preact";
+import { Plus, Pencil, PencilOff, Trash, ClipboardCopy } from "lucide-preact";
 
 export function List({list}) {
     const [items, setItems] = useState(list.get());
@@ -11,7 +11,7 @@ export function List({list}) {
     };
 
     const toggleMode = (key) => {
-        const elements = ['-input', '-label', '-edit-button', '-edit-input', '-save-button', '-delete-button'];
+        const elements = ['-input', '-label', '-edit-button', '-edit-input', '-save-button', '-delete-button', '-copy-button'];
         for(const element of elements) {
             toggleVisibilityById(key + element);
         }
@@ -53,6 +53,12 @@ export function List({list}) {
         setItems(list.get());
     };
 
+    const copyItem = (key) => {
+        toggleMode(key);
+        list.copy(key);
+        setItems(list.get());
+    };
+
     return (
         <>
             <div id="add-to-do-container">
@@ -70,6 +76,7 @@ export function List({list}) {
 
                         <button id={key + '-edit-button'} onClick={() => editItem(key)}><Pencil width={16} height={16} /></button>
                         <button id={key + '-save-button'} class="save-button" onClick={() => saveItem(key)}><PencilOff width={16} height={16} /></button>
+                        <button id={key + '-copy-button'} class="copy-button" onClick={() => copyItem(key)}><ClipboardCopy width={16} height={16} /></button>
                         <button id={key + '-delete-button'} class="delete-button" onClick={() => deleteItem(key)}><Trash width={16} height={16} /></button>
                     </li>
                 ))}

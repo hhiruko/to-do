@@ -3,6 +3,10 @@ export class List {
         this.storage = storage;
     }
 
+    newKey() {
+        return Date.now();
+    }
+
     keys() {
         return this.storage.keys();
     }
@@ -16,7 +20,7 @@ export class List {
             text: item,
             status: false
         }
-        this.storage.set(Date.now(), itemObject);
+        this.storage.set(this.newKey(), itemObject);
     }
 
     edit(key, item) {
@@ -42,5 +46,11 @@ export class List {
 
     clear() {
         this.storage.clear();
+    }
+
+    copy(key) {
+        const item = this.storage.get(key);
+        const itemObject = {...item};
+        this.storage.set(this.newKey(), itemObject);
     }
 }

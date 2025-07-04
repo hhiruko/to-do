@@ -65,7 +65,7 @@ button:focus {
     margin: auto;
 }
 
-.save-button, .delete-button, .edit-input {
+.save-button, .delete-button, .edit-input, .copy-button {
     display: none;
 }
 
