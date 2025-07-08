@@ -1,8 +1,15 @@
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 import { Plus, Pencil, PencilOff, Trash, ClipboardCopy } from "lucide-preact";
 
 export function List({list}) {
     const [items, setItems] = useState(list.get());
+
+    useEffect(() => {
+        const unsubscribe = list.subscribe(() => {
+            setItems(list.get());
+        });
+        return () => unsubscribe();
+    }, [list]);
 
     const toggleVisibilityById = (id) => {
         const element = document.getElementById(id);
@@ -24,13 +31,11 @@ export function List({list}) {
             return;
         }
         list.add(text);
-        setItems(list.get());
         input.value = '';
     };
 
     const checkItem = (key) => {
         list.check(key);
-        setItems(list.get());
     };
 
     const editItem = (key) => {
@@ -44,19 +49,16 @@ export function List({list}) {
             list.edit(key, text);
         }
         toggleMode(key);
-        setItems(list.get());
     };
 
     const deleteItem = (key) => {
         toggleMode(key);
         list.delete(key);
-        setItems(list.get());
     };
 
     const copyItem = (key) => {
         toggleMode(key);
         list.copy(key);
-        setItems(list.get());
     };
 
     return (

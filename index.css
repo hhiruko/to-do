@@ -18,7 +18,7 @@ button:focus {
     box-shadow: none;
 }
 
-#theme-button {
+#theme-button, #stats-button {
     all: unset;
     display: flex;
 }
@@ -71,4 +71,9 @@ button:focus {
 
 .edit-input {
     width: 100%;
+}
+
+#header-right-container {
+    display: flex;
+    gap: 12px;
 }
