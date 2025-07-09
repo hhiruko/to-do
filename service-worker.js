@@ -1,11 +1,6 @@
 
     const assets = [
   "/to-do/index.html",
-  "/to-do/cdn/water.system.min.css",
-  "/to-do/cdn/water.light.min.css",
-  "/to-do/cdn/water.dark.min.css",
-  "/to-do/assets/index-bMyqNwGF.js",
-  "/to-do/assets/index-CRhVPSpW.css",
   "/to-do/favicons/yandex-browser-manifest.json",
   "/to-do/favicons/yandex-browser-50x50.png",
   "/to-do/favicons/mstile-70x70.png",
@@ -76,9 +71,14 @@
   "/to-do/favicons/android-chrome-256x256.png",
   "/to-do/favicons/android-chrome-192x192.png",
   "/to-do/favicons/android-chrome-144x144.png",
+  "/to-do/assets/index-CRhVPSpW.css",
+  "/to-do/assets/index-B5GOjYcX.js",
+  "/to-do/cdn/water.system.min.css",
+  "/to-do/cdn/water.light.min.css",
+  "/to-do/cdn/water.dark.min.css",
   "/to-do/"
 ];
-    const CACHE_NAME = 'v2025-07-09T09:22:46.424Z';
+    const CACHE_NAME = 'v2025-07-09T09:25:30.130Z';
 
     self.addEventListener('install', event => {
         self.skipWaiting();
