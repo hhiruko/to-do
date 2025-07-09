@@ -78,9 +78,10 @@
   "/to-do/assets/index-CRhVPSpW.css",
   "/to-do/"
 ];
-    const CACHE_NAME = 'v2025-07-08T12:05:36.062Z';
+    const CACHE_NAME = 'v2025-07-09T07:59:49.641Z';
 
     self.addEventListener('install', event => {
+        self.skipWaiting();
         event.waitUntil(
             caches.open(CACHE_NAME).then(async cache => {
                 for(const asset of assets) {
@@ -108,6 +109,7 @@
     });
 
     self.addEventListener('activate', event => {
+        self.clients.claim();
         event.waitUntil(
             caches.keys().then(cacheNames => {
                 return Promise.all(
