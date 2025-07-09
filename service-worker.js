@@ -71,14 +71,14 @@
   "/to-do/favicons/android-chrome-256x256.png",
   "/to-do/favicons/android-chrome-192x192.png",
   "/to-do/favicons/android-chrome-144x144.png",
-  "/to-do/assets/index-CRhVPSpW.css",
-  "/to-do/assets/index-B5GOjYcX.js",
   "/to-do/cdn/water.system.min.css",
   "/to-do/cdn/water.light.min.css",
   "/to-do/cdn/water.dark.min.css",
+  "/to-do/assets/index-v8FVbCea.js",
+  "/to-do/assets/index-CRhVPSpW.css",
   "/to-do/"
 ];
-    const CACHE_NAME = 'v2025-07-09T09:25:30.130Z';
+    const CACHE_NAME = 'v2025-07-09T09:27:40.843Z';
 
     self.addEventListener('install', event => {
         self.skipWaiting();
