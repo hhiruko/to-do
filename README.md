@@ -1,8 +1,8 @@
-# To-do List
+# Simple To-do List
 
 A simple to-do list PWA because nothing else worked for me, and I use this one every day.
 
-🔗 **Live**: [hhiruko.github.io/to-do](https://hhiruko.github.io/to-do)
+**Live**: [hhiruko.github.io/to-do](https://hhiruko.github.io/to-do)
 
 ### 🚀 Core Features
 - Full CRUD functionality for managing tasks
