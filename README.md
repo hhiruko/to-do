@@ -1,4 +1,4 @@
-# Simple To-do List
+# To-do
 
 A simple to-do list PWA because nothing else worked for me, and I use this one every day.
 
