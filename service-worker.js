@@ -78,7 +78,7 @@
   "/to-do/assets/index-CRhVPSpW.css",
   "/to-do/"
 ];
-    const CACHE_NAME = 'v2025-07-16T06:27:40.563Z';
+    const CACHE_NAME = 'v2025-07-16T06:29:57.263Z';
 
     self.addEventListener('install', event => {
         self.skipWaiting();
