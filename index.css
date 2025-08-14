@@ -1,3 +1,8 @@
+:root {
+    --focus: #007bff;
+    --danger: #dc3545;
+}
+
 header {
     margin-bottom: 12px;
     display: flex;
@@ -76,4 +81,44 @@ button:focus {
 #header-right-container {
     display: flex;
     gap: 12px;
+}
+
+#delete-container {
+    border: 1px solid var(--danger);
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.delete-dialog-form {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+#delete-checked-button, #delete-checked-dialog-trigger-button, #delete-all-button, #delete-all-dialog-trigger-button {
+    background-color: var(--danger);
+    color: white;
+}
+
+.delete-buttons-container {
+    display: flex;
+    gap: 24px;
+}
+
+#import-container {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.system-actions-container {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: none;
+}
+
+#header-right-container * {
+    cursor: pointer;
 }
