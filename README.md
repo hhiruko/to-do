@@ -12,6 +12,7 @@ A simple to-do list PWA because nothing else worked for me, and I use this one e
 - `localStorage` wrapper classes: `Storage`, `CollectionStorage`
 - GitHub Actions workflow for Pages deployment
 - Icon system based on `lucide-preact`
+- Import/Export to JSON
 
 ---
 
@@ -55,3 +56,4 @@ To enable deployment:
 
 ### 📝 License
 MIT
+
