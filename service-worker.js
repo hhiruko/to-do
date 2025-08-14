@@ -78,7 +78,7 @@
   "/to-do/assets/index-BFS3DZWl.css",
   "/to-do/"
 ];
-    const CACHE_NAME = 'v2025-08-14T11:09:30.522Z';
+    const CACHE_NAME = 'v2025-08-14T11:13:51.607Z';
 
     self.addEventListener('install', event => {
         self.skipWaiting();
